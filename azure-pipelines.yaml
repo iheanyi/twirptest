@@ -1,0 +1,10 @@
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+container: golang:1.12
+
+steps:
+  - script: |
+      su -c "apt-get update" && su -c "apt-get install -y unzip"
+      make bootstrap
+  - script: make ci
